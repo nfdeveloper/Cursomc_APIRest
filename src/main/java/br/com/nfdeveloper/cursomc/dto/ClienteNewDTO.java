@@ -2,21 +2,41 @@ package br.com.nfdeveloper.cursomc.dto;
 
 import java.io.Serializable;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+
 public class ClienteNewDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
+	@Min(value = 5, message = "O tamanho deve ser maior que 4 caracteres.")
+	@Max(value = 120, message = "O tamanho deve ter no máximo 120 caracteres.")
 	private String nome;
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
+	@Email(message = "Email inválido")
 	private String email;
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
 	private String cpfOuCnpj;
 	private Integer tipo;
 	
+	@NotEmpty(message = "Preenchimento obrigatório")
 	private String logradouro;
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
 	private String numero;
 	private String complemento;
 	private String bairro;
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
 	private String cep;
 	
+	@NotEmpty(message = "Preenchimento obrigatório")
 	private String telefone1;
 	private String telefone2;
 	private String telefone3;
